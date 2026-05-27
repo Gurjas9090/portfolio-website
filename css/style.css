@@ -1,0 +1,536 @@
+/* ============================================
+   GURJAS SINGH - PORTFOLIO STYLESHEET
+   All pages use this single CSS file
+   ============================================ */
+
+/* --- Google Fonts Import ---
+   Playfair Display = elegant heading font
+   Lato = clean, readable body font         */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+
+/* --- CSS Variables (Colour Palette) ---
+   Change a colour here = changes everywhere */
+:root {
+  --bg:         #fdf6f0;   /* warm cream background    */
+  --primary:    #5c3d2e;   /* deep brown - headings    */
+  --accent:     #c8a165;   /* gold - highlights        */
+  --text:       #2d2d2d;   /* near-black - body text   */
+  --footer-bg:  #3e2723;   /* dark brown - footer      */
+  --white:      #ffffff;   /* white - cards            */
+  --light-grey: #f0e8e0;   /* soft warm grey - dividers*/
+}
+
+/* --- Reset & Base ---
+   Removes default browser spacing/sizing   */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* ============================================
+   HEADER
+   The top banner shown on every page
+   ============================================ */
+header {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 40px 20px 30px;
+  text-align: center;
+  border-bottom: 4px solid var(--accent);
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+
+header p.tagline {
+  font-size: 1rem;
+  color: var(--accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 6px;
+  font-weight: 300;
+}
+
+/* ============================================
+   NAVIGATION BAR
+   Links to all 3 pages, consistent on each
+   ============================================ */
+nav {
+  background-color: var(--white);
+  border-bottom: 2px solid var(--light-grey);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0;
+  position: sticky;   /* stays at top when scrolling */
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+nav a {
+  display: inline-block;
+  padding: 16px 28px;
+  text-decoration: none;
+  color: var(--primary);
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;   /* smooth hover effect */
+  border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+  border-bottom: 3px solid var(--accent);
+}
+
+/* ============================================
+   MAIN CONTENT WRAPPER
+   Centres and limits the width of all content
+   ============================================ */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px 60px;
+}
+
+/* ============================================
+   SECTION TITLES
+   Reusable heading style for all sections
+   ============================================ */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Decorative underline on section titles */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent);
+  margin-top: 6px;
+}
+
+/* ============================================
+   CARDS
+   White boxes used to hold content sections
+   ============================================ */
+.card {
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 35px 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 3px 15px rgba(92, 61, 46, 0.08);
+  border-left: 4px solid var(--accent);
+}
+
+/* ============================================
+   HOME PAGE - HERO SECTION
+   The big welcome banner on index.html
+   ============================================ */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;           /* makes it a circle    */
+  object-fit: cover;            /* crops photo neatly   */
+  object-position: top;
+  border: 5px solid var(--accent);
+  box-shadow: 0 8px 25px rgba(92, 61, 46, 0.2);
+  flex-shrink: 0;
+}
+
+.hero-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.hero-text h2 span {
+  color: var(--accent);
+}
+
+.hero-text p {
+  margin-top: 14px;
+  font-size: 1.05rem;
+  color: var(--text);
+  max-width: 520px;
+}
+
+/* CTA Button on home page */
+.btn {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 12px 30px;
+  background-color: var(--primary);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--accent);
+  transform: translateY(-2px);   /* subtle lift effect */
+}
+
+/* ============================================
+   HOME PAGE - HIGHLIGHTS ROW
+   3 info boxes below the hero section
+   ============================================ */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);   /* 3 equal columns */
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto 50px;
+  padding: 0 20px;
+}
+
+.highlight-box {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 30px 24px;
+  text-align: center;
+  box-shadow: 0 3px 15px rgba(92, 61, 46, 0.08);
+  border-top: 4px solid var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.highlight-box:hover {
+  transform: translateY(-5px);
+}
+
+.highlight-box .icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.highlight-box h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--primary);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.highlight-box p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ============================================
+   ABOUT PAGE - PROFILE SECTION
+   ============================================ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.about-photo {
+  width: 200px;
+  height: 240px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 10px;
+  border: 4px solid var(--accent);
+  box-shadow: 0 6px 20px rgba(92, 61, 46, 0.15);
+}
+
+.about-details p {
+  margin-bottom: 14px;
+  font-size: 1rem;
+}
+
+/* Info label/value pairs e.g. "Name: Gurjas Singh" */
+.info-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.info-label {
+  font-weight: 700;
+  color: var(--primary);
+  min-width: 110px;
+}
+
+/* ============================================
+   ACHIEVEMENTS - Timeline style list
+   ============================================ */
+.achievement-list {
+  list-style: none;
+  padding: 0;
+}
+
+.achievement-list li {
+  padding: 14px 0 14px 20px;
+  border-left: 3px solid var(--accent);
+  margin-bottom: 12px;
+  font-size: 0.97rem;
+  position: relative;
+}
+
+/* Gold dot on each achievement */
+.achievement-list li::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: absolute;
+  left: -7px;
+  top: 18px;
+}
+
+/* ============================================
+   SKILLS PAGE - Skill Bars
+   ============================================ */
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.skill-item label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.skill-bar {
+  background-color: var(--light-grey);
+  border-radius: 20px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 20px;
+  transition: width 1s ease;
+}
+
+/* ============================================
+   INTERESTS - Tag style chips
+   ============================================ */
+.interests-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.interest-tag {
+  background-color: var(--light-grey);
+  color: var(--primary);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 2px solid var(--accent);
+  transition: all 0.3s ease;
+}
+
+.interest-tag:hover {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+/* ============================================
+   CONTACT FORM
+   ============================================ */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px 16px;
+  border: 2px solid var(--light-grey);
+  border-radius: 8px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.contact-form button {
+  padding: 14px;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--accent);
+}
+
+/* Form validation feedback */
+.form-msg {
+  display: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.form-msg.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  display: block;
+}
+
+.form-msg.error {
+  background-color: #fdecea;
+  color: #c62828;
+  display: block;
+}
+
+/* ============================================
+   FOOTER
+   Shown on every page - social media links
+   ============================================ */
+footer {
+  background-color: var(--footer-bg);
+  color: #ccc;
+  text-align: center;
+  padding: 35px 20px;
+  margin-top: 60px;
+}
+
+footer p {
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: var(--accent);
+  color: var(--footer-bg);
+}
+
+/* ============================================
+   DIVIDER LINE
+   Decorative separator between sections
+   ============================================ */
+.divider {
+  border: none;
+  border-top: 2px solid var(--light-grey);
+  margin: 40px 0;
+}
+
+/* ============================================
+   RESPONSIVE - Mobile Friendly
+   Adjusts layout for smaller screens
+   ============================================ */
+@media (max-width: 700px) {
+  header h1 { font-size: 1.9rem; }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo {
+    width: 100%;
+    height: 260px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    padding: 12px 16px;
+    font-size: 0.8rem;
+  }
+}

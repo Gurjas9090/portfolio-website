@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gurjas Singh | Portfolio</title>
+  <!-- Links to our single CSS file for all styling -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- =============================================
+       HEADER
+       Shows your name and title on every page
+       ============================================= -->
+  <header>
+    <h1>Gurjas Singh</h1>
+    <p class="tagline">Cybersecurity Student &nbsp;|&nbsp; Melbourne, Australia</p>
+  </header>
+
+  <!-- =============================================
+       NAVIGATION BAR
+       Links to all 3 pages
+       "active" class highlights the current page
+       ============================================= -->
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="skills.html">Skills &amp; Interests</a>
+  </nav>
+
+  <!-- =============================================
+       HERO SECTION
+       First thing visitors see - photo + intro
+       ============================================= -->
+  <section class="hero">
+    <img
+      src="images/profile.jpg"
+      alt="Gurjas Singh graduation photo"
+      class="hero-photo"
+    />
+    <div class="hero-text">
+      <h2>Hey, I'm <span>Gurjas</span> 👋</h2>
+      <p>
+        A driven Cybersecurity student based in Melbourne with a deep passion
+        for understanding how systems work, defending them against real threats,
+        and contributing to a safer digital world — one step at a time.
+      </p>
+      <a href="about.html" class="btn">Learn More About Me</a>
+    </div>
+  </section>
+
+  <!-- =============================================
+       HIGHLIGHTS ROW
+       3 quick-glance cards summarising who you are
+       ============================================= -->
+  <div class="highlights">
+
+    <div class="highlight-box">
+      <div class="icon">🎓</div>
+      <h3>Education</h3>
+      <p>Diploma of Cybersecurity<br/>La Trobe College, Bundoora</p>
+    </div>
+
+    <div class="highlight-box">
+      <div class="icon">🔐</div>
+      <h3>Focus Area</h3>
+      <p>Cybersecurity &amp; Network Security<br/>Aspiring Analyst → Engineer</p>
+    </div>
+
+    <div class="highlight-box">
+      <div class="icon">🏀</div>
+      <h3>Athlete</h3>
+      <p>Back-to-back basketball champion<br/>Sportsmanship Award recipient</p>
+    </div>
+
+  </div>
+
+  <!-- =============================================
+       ABOUT SNAPSHOT SECTION
+       Brief intro to pull visitors in further
+       ============================================= -->
+  <main>
+    <div class="card">
+      <h2 class="section-title">Who Am I?</h2>
+      <p>
+        I'm a 19-year-old student from a proud Indian and Punjabi background,
+        living in Melbourne since 2008. My journey into cybersecurity started
+        with nerves and uncertainty — but has grown into a genuine passion.
+        I'm someone who leads with contribution, shows up fully, and never
+        shies away from starting from the ground up.
+      </p>
+      <br/>
+      <p>
+        Outside of tech, I'm an athlete with years of experience in competitive
+        basketball — a world that taught me teamwork, resilience, and the value
+        of doing your part for something bigger than yourself.
+      </p>
+      <br/>
+      <a href="about.html" class="btn">Read My Full Story</a>
+    </div>
+
+    <!-- =============================================
+         GOALS SECTION
+         Quick overview of career aspirations
+         ============================================= -->
+    <div class="card">
+      <h2 class="section-title">My Goals</h2>
+      <p>
+        My ambition is to build a strong foundational base in cybersecurity
+        and progressively work my way up from an entry-level position into
+        senior and leadership roles. Right now I'm aiming toward becoming a
+        <strong>Cybersecurity Analyst</strong>, with long-term aspirations of
+        transitioning into <strong>Network Security Engineering</strong>.
+      </p>
+      <br/>
+      <p>
+        More than titles, what drives me is <em>impact</em> — making a
+        meaningful contribution wherever I'm placed and being part of a field
+        that genuinely makes the world a safer place.
+      </p>
+    </div>
+
+    <!-- =============================================
+         CONTACT FORM
+         Simple contact me form with JS validation
+         ============================================= -->
+    <div class="card">
+      <h2 class="section-title">Get In Touch</h2>
+      <p style="margin-bottom: 20px;">
+        Feel free to reach out — whether it's about opportunities,
+        collaborations, or just a conversation about cybersecurity!
+      </p>
+
+      <!-- Form uses JS validation - no PHP needed for Cloudflare -->
+      <div class="contact-form">
+        <input type="text"  id="name"    placeholder="Your Name"    />
+        <input type="email" id="email"   placeholder="Your Email"   />
+        <input type="text"  id="subject" placeholder="Subject"      />
+        <textarea           id="message" placeholder="Your Message"></textarea>
+        <button onclick="validateForm()">Send Message</button>
+        <!-- Success/error message shown after submit -->
+        <div class="form-msg" id="formMsg"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- =============================================
+       FOOTER
+       Social media links + copyright
+       ============================================= -->
+  <footer>
+    <p>© 2025 Gurjas Singh — Cybersecurity Portfolio</p>
+    <div class="social-links">
+      <a href="https://github.com/Gurjas9090" target="_blank">GitHub</a>
+      <a href="https://www.instagram.com/gurjas4037/" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+      <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       JAVASCRIPT - Form Validation
+       Checks all fields are filled before "sending"
+       ============================================= -->
+  <script>
+    function validateForm() {
+      // Grab the value from each input field
+      const name    = document.getElementById('name').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const msg     = document.getElementById('formMsg');
+
+      // Remove any previous message styling
+      msg.className = 'form-msg';
+
+      // Check if any field is empty
+      if (!name || !email || !subject || !message) {
+        msg.textContent = '⚠️ Please fill in all fields before sending.';
+        msg.classList.add('error');
+        return;
+      }
+
+      // Basic email format check using regex
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        msg.textContent = '⚠️ Please enter a valid email address.';
+        msg.classList.add('error');
+        return;
+      }
+
+      // All good - show success message
+      msg.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
+      msg.classList.add('success');
+
+      // Clear the form fields
+      document.getElementById('name').value    = '';
+      document.getElementById('email').value   = '';
+      document.getElementById('subject').value = '';
+      document.getElementById('message').value = '';
+    }
+  </script>
+
+</body>
+</html>
